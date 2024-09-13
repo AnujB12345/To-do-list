@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuj's To-Do list</title>
+</head>
+<body>
+  
+<h1>Anuj's To-do list</h1> 
+
+
+<form action="{{ url_for('homepage') }}" class="input-container" method="POST" autocomplete="on">
+    <label for="enter-task"></label>  
+    <input type="text" placeholder="Enter a task" id="enter-task" name="enter-task">
+    <button id="add-task">✔</button>
+</form>
+
+{%if error_message %}
+ <div class="error-message">{{error_message}}</div>
+{%endif%}
+
+<div class="header-container">
+    <h2 id="completed-tasks">Completed Tasks</h2>
+    <h2 id="Pending-tasks">Pending Tasks</h2>
+</div>
+
+<div class="todo-container">  
+   <div class="todo-column">
+      {% for item in pending_tasks %}
+      <div class="todo_unchecked">
+   
+         <p>{{ item.name }}</p>
+         <div class="actions">
+            <form action="{{ url_for('check_task', todo_id=item.id) }}" method="POST">
+               <input type="checkbox" name="checkbox" id="checkbox-{{ item.id }}" {% if item.checked %}checked{% endif %} onchange="this.form.submit()">
+            </form>
+            <form id="set-date" action="{{ url_for('set_completion_date', todo_id=item.id) }}" method="POST">
+               <input type="date" name="completion_date">
+            </form>
+            <form id="delete" action="{{ url_for('delete_task', todo_id=item.id) }}" method="POST">
+               <button>🗑️</button>
+            </form>
+         </div>
+         </form>
+      </div>
+      {% endfor %}
+   </div>  
+
+   <div class="todo-column">
+      {% for item in completed_tasks %}
+      <div class="todo_checked">
+   
+         <p>{{ item.name }}</p>
+         <div class="actions">
+            <form action="{{ url_for('check_task', todo_id=item.id) }}" method="POST">
+               <input type="checkbox" name="checkbox" id="checkbox-{{ item.id }}" checked onchange="this.form.submit()">
+            </form>
+            <form id="delete" action="{{ url_for('delete_task', todo_id=item.id) }}" method="POST">
+               <button>🗑️</button>
+            </form>
+         </div>
+         </form>
+      </div>
+      {% endfor %}
+   </div>
+</div>
+
+</body>
+</html>

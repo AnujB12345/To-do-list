@@ -1,0 +1,149 @@
+
+body {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   background-color: beige;
+   padding: 0;
+   margin: 0;
+}
+
+
+h1 {
+   text-align: center;
+   font-family: monospace;
+   font-weight: bold;
+   font-size: 40px;
+   background-color: rgb(231, 219, 197);
+   margin: 20px;
+   padding: 10px;
+   border-style: dashed;
+
+}
+
+
+.header-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr ; 
+   font-family: monospace;
+   font-weight: bold;
+   font-size: 20px;
+   text-align: center;
+   padding: 10px;
+   margin: 0 auto;
+   width: 80%; 
+   border-radius: 5px;
+   justify-content: space-between;
+}
+
+
+#Pending-tasks {
+   text-align: center;
+   padding-left: 10px;
+   grid-column: 1; 
+   grid-row: 2;
+   font-size: 35px;
+}
+
+/* Todo Tasks Header (Right Column) */
+#completed-tasks {
+   text-align: center;
+   padding-right: 10px;
+   grid-column: 2; /* Place in the second grid column */
+   grid-row: 2;
+   font-size: 35px;
+}
+
+
+.input-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 8px;
+   margin: 15px auto;
+   width: 60%;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+
+#enter-task {
+   width: 300px;
+   height: 35px;
+   font-family: 'Courier New', Courier, monospace;
+
+
+}
+
+.error-message{
+   display: flex;
+   justify-content: center;
+}
+#add-task {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 40px;
+   width: 40px;
+   border-radius: 20px;
+   font-size: 20px;
+   cursor: pointer;
+}
+
+
+.todo-container {
+   display: grid;
+   grid-template-columns: 1fr 1fr; 
+   width: 80%;
+   margin: 20px auto;
+   gap: 30px; /* Space between columns */
+}
+
+/* Each Todo or Pending Task */
+.todo_unchecked {
+   background-color: rgb(190, 226, 239);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px;
+   border-radius: 10px;
+   font-size: 18px;
+   font-family: monospace;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better appearance */
+   width: 100%;
+   box-sizing: border-box;
+}
+
+
+.todo_checked {
+   background-color: rgb(190, 226, 239);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px;
+   border-radius: 10px;
+   font-size: 18px;
+   font-family: monospace;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better appearance */
+   width: 100%;
+   box-sizing: border-box;
+}
+
+.todo-column{
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+/* Checkbox and Delete button */
+.actions > form {
+   display: inline;
+}
+
+.actions > form > button {
+   color: none;
+   border: 5px;
+   padding: 5px 10px;
+   cursor: pointer;
+   border-radius: 5px;
+   background-color: none;
+   font-size: large;
+}
+
